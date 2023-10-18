@@ -9,18 +9,18 @@ public class SomeMethods {
     public void checkSumSign() {
         int a = -6;
         int b = 5;
-        System.out.println(a + b >= 0 ? "—ÛÏÏ‡ ÔÓÎÓÊËÚÂÎ¸Ì‡ˇ" : "—ÛÏÏ‡ ÓÚËˆ‡ÚÂÎ¸Ì‡ˇ");
+        System.out.println(a + b >= 0 ? "–°—É–º–º–∞ –ø–æ–ª–æ–∂–∏—Ç–µ–ª—å–Ω–∞—è" : "–°—É–º–º–∞ –æ—Ç—Ä–∏—Ü–∞—Ç–µ–ª—å–Ω–∞—è");
     }
 
     public void printColor() {
         int value = 101;
         String result;
         if (value <= 0) {
-            result = " ‡ÒÌ˚È";
+            result = "–ö—Ä–∞—Å–Ω—ã–π";
         } else if (value > 0 && value <= 100) {
-            result = "∆ÂÎÚ˚È";
+            result = "–ñ–µ–ª—Ç—ã–π";
         } else {
-            result = "«ÂÎÂÌ˚È";
+            result = "–ó–µ–ª–µ–Ω—ã–π";
         }
         System.out.println(result);
     }

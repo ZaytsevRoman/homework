@@ -1,4 +1,4 @@
-package lesson3;
+package lesson4;
 
 public class Employee {
 
@@ -27,5 +27,9 @@ public class Employee {
                 ", Зарплата=" + salary +
                 ", Возраст=" + age +
                 '}');
+    }
+
+    public int getAge() {
+        return age;
     }
 }

@@ -1,4 +1,4 @@
-package lesson3;
+package lesson4;
 
 public class Park {
 

@@ -1,8 +1,8 @@
-package lesson2;
+package lesson3;
 
 import java.util.Arrays;
 
-public class Homework2 {
+public class Homework3 {
 
     public boolean checkAmount(int a, int b) {
         if (a + b >= 10 && a + b <= 20) {

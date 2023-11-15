@@ -4,6 +4,7 @@ public class Cat extends Animal{
 
     private static int count = 0;
     private boolean fullness = false;
+    private static final int MAX_RUN_DISTANCE = 200;
 
     public Cat(String name) {
         super(name);
@@ -11,7 +12,7 @@ public class Cat extends Animal{
     }
 
     public void run(int length) {
-        if (length > 200) {
+        if (length > MAX_RUN_DISTANCE) {
             System.out.println("Длинна слишком большая для " + name);
         } else {
             super.run(length);

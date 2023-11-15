@@ -1,6 +1,6 @@
 package lesson5.task2;
 
-public class Rectangle extends GeometricFiguresColor implements GeometricFigures{
+public class Rectangle extends GeometricFigure implements GeometricFigures{
 
     private double length;
     private double width;
@@ -16,11 +16,8 @@ public class Rectangle extends GeometricFiguresColor implements GeometricFigures
         return length * width;
     }
 
-    public double getLength() {
-        return length;
-    }
-
-    public double getWidth() {
-        return width;
+    @Override
+    public double perimeterCalculation() {
+        return 2 * (length + width);
     }
 }

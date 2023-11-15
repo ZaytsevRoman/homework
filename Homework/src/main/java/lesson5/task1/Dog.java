@@ -3,6 +3,8 @@ package lesson5.task1;
 public class Dog extends Animal{
 
     private static int count = 0;
+    private static final int MAX_RUN_DISTANCE = 500;
+    private static final int MAX_SWIM_DISTANCE = 10;
 
     public Dog(String name) {
         super(name);
@@ -10,7 +12,7 @@ public class Dog extends Animal{
     }
 
     public void run(int length) {
-        if (length > 500) {
+        if (length > MAX_RUN_DISTANCE) {
             System.out.println("Длинна слишком большая для " + name);
         } else {
             super.run(length);
@@ -18,7 +20,7 @@ public class Dog extends Animal{
     }
 
     public void swim(int length) {
-        if (length > 10) {
+        if (length > MAX_SWIM_DISTANCE) {
             System.out.println("Длинна слишком большая для " + name);
         } else {
             super.swim(length);

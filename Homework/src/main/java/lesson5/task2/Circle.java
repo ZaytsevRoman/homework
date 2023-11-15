@@ -1,6 +1,6 @@
 package lesson5.task2;
 
-public class Circle extends GeometricFiguresColor implements GeometricFigures{
+public class Circle extends GeometricFigure implements GeometricFigures{
 
     private double radius;
 
@@ -14,7 +14,8 @@ public class Circle extends GeometricFiguresColor implements GeometricFigures{
         return Pi * radius * radius;
     }
 
-    public double getRadius() {
-        return radius;
+    @Override
+    public double perimeterCalculation() {
+        return 2 * Pi * radius;
     }
 }

@@ -11,7 +11,7 @@ public class Main {
         circles[2] = new Circle("yellow", "green", 20);
 
         for (Circle c : circles) {
-            String formattedPerimeter = new DecimalFormat("#0.00").format(c.perimeterCalculation(c.getRadius()));
+            String formattedPerimeter = new DecimalFormat("#0.00").format(c.perimeterCalculation());
             String formattedArea = new DecimalFormat("#0.00").format(c.areaCalculation());
             System.out.println("Периметр: " + formattedPerimeter + " площадь: " + formattedArea +
                     " цвет фона: " + c.areaColor + " цвет границ: " + c.borderColor);
@@ -22,7 +22,7 @@ public class Main {
         rectangles[1] = new Rectangle("black", "white", 12, 9);
 
         for (Rectangle r : rectangles) {
-            System.out.println("Периметр: " + r.perimeterCalculation(r.getLength(), r.getWidth())
+            System.out.println("Периметр: " + r.perimeterCalculation()
                     + " площадь: " + r.areaCalculation() + " цвет фона: " + r.areaColor +
                     " цвет границ: " + r.borderColor);
         }
@@ -33,7 +33,7 @@ public class Main {
 
         for (Triangle t : triangles) {
             String formattedPerimeter = new DecimalFormat("#0.00")
-                    .format(t.perimeterCalculation(t.getA(), t.getB(), t.getC()));
+                    .format(t.perimeterCalculation());
             String formattedArea = new DecimalFormat("#0.00").format(t.areaCalculation());
             System.out.println("Периметр: " + formattedPerimeter + " площадь: " + formattedArea +
                     " цвет фона: " + t.areaColor + " цвет границ: " + t.borderColor);

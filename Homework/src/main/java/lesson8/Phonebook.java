@@ -14,7 +14,7 @@ public class Phonebook {
     public void get(String surname) {
         for (Map.Entry<String, String> entry : surnameAndPhoneNumberList.entrySet()) {
             if (entry.getValue().equals(surname)) {
-                System.out.println(entry.getKey());
+                System.out.println("Номер телефона " + entry.getValue() + ": " + entry.getKey());
             }
         }
     }

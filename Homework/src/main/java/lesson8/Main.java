@@ -9,13 +9,13 @@ public class Main {
     public static void main(String[] args) {
 
         String[] arrWords = {"один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять", "десять",
-                "два", "пять", "восемь", "восемь", "одинадцать"};
+                "два", "пять", "восемь", "восемь", "одиннадцать"};
 
         HashSet<String> uniqueWordsList = new HashSet<>(List.of(arrWords));
-        System.out.println(uniqueWordsList);
+        System.out.println("Список уникальных слов: " + uniqueWordsList);
 
         ArrayList<String> wordsList = new ArrayList<>(List.of(arrWords));
-        HashMap wordsListWithCount = new HashMap<>();
+        HashMap<String, Integer> wordsListWithCount = new HashMap<>();
         for (int i = 0; i < wordsList.size(); i++) {
             int count = 0;
             for (int j = 0; j < wordsList.size(); j++) {
@@ -25,7 +25,7 @@ public class Main {
             }
             wordsListWithCount.put(wordsList.get(i), count);
         }
-        System.out.println(wordsListWithCount);
+        System.out.println("Список с количеством повторений слов: " + wordsListWithCount);
 
         Phonebook phonebook = new Phonebook();
         phonebook.add("Иванов", "233-333");

@@ -13,6 +13,7 @@ public class MtsMenuTest {
     static WebDriver driver;
     static Actions builder;
     static InputFields inputFields;
+    final static By COOKIE_CANCEL_BUTTON_LOCATOR = By.xpath("//*[@class='btn btn_gray cookie__cancel']");
 
     @BeforeAll
     static void startSession() {
@@ -20,6 +21,7 @@ public class MtsMenuTest {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://www.mts.by/");
+        driver.findElement(COOKIE_CANCEL_BUTTON_LOCATOR).click();
         builder = new Actions(driver);
         inputFields = new InputFields(driver);
     }

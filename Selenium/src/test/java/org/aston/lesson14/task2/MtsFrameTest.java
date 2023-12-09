@@ -23,6 +23,7 @@ public class MtsFrameTest {
     final static String PHONE_NUMBER = "297777777";
     final static Integer SUCCESSFUL_REQUEST = 200;
     final static int TIME_OUT = 3000;
+    final static By COOKIE_CANCEL_BUTTON_LOCATOR = By.xpath("//*[@class='btn btn_gray cookie__cancel']");
 
     @BeforeAll
     static void startSession() {
@@ -30,6 +31,7 @@ public class MtsFrameTest {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://www.mts.by/");
+        driver.findElement(COOKIE_CANCEL_BUTTON_LOCATOR).click();
         openFrame();
     }
 

@@ -1,75 +1,54 @@
 package org.aston.lesson14.task1;
 
+import org.aston.lesson14.WebDriverInstance;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-
-import java.time.Duration;
 
 public class MtsMenuTest {
     static WebDriver driver;
-    static Actions builder;
     static InputFields inputFields;
     final static By COOKIE_CANCEL_BUTTON_LOCATOR = By.xpath("//*[@class='btn btn_gray cookie__cancel']");
 
     @BeforeAll
     static void startSession() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver = WebDriverInstance.getInstance();
         driver.get("https://www.mts.by/");
         driver.findElement(COOKIE_CANCEL_BUTTON_LOCATOR).click();
-        builder = new Actions(driver);
         inputFields = new InputFields(driver);
     }
 
     @Test
     @DisplayName("Проверка полей \"Услуги связи\"")
     void checkFieldsCommunicationServices() {
-        inputFields.checkPhoneNumberField();
+        Assertions.assertEquals("Номер телефона", inputFields.getPhoneNumberField());
         checkSumAndEmail();
     }
 
     @Test
     @DisplayName("Проверка полей \"Домашний интернет\"")
     void checkFieldsHomeInternet() {
-        menuClick("//*[@id=\"pay-section\"]//li[2]/p");
-        inputFields.checkSubscriberNumber();
+        Assertions.assertEquals("Номер абонента", inputFields.getSubscriberNumber());
         checkSumAndEmail();
     }
 
     @Test
     @DisplayName("Проверка полей \"Рассрочка\"")
     void checkFieldsInstallment() {
-        menuClick("//*[@id=\"pay-section\"]//li[3]/p");
-        inputFields.checkAccountNumberBy44();
+        Assertions.assertEquals("Номер счета на 44", inputFields.getAccountNumberBy44());
         checkSumAndEmail();
     }
 
     @Test
     @DisplayName("Проверка полей \"Задолженность\"")
     void checkFieldsDebt() {
-        menuClick("//*[@id=\"pay-section\"]//li[4]/p");
-        inputFields.checkAccountNumberBy2073();
+        Assertions.assertEquals("Номер счета на 2073", inputFields.getAccountNumberBy2073());
         checkSumAndEmail();
     }
 
-    void menuClick(String xpath) {
-        WebElement menuButton = driver.findElement(By.xpath("//*[@id=\"pay-section\"]//button"));
-        WebElement menuItem = driver.findElement(By.xpath(xpath));
-        builder
-                .click(menuButton)
-                .click(menuItem)
-                .build()
-                .perform();
-    }
-
     void checkSumAndEmail() {
-        inputFields.checkSumField();
-        inputFields.checkEmailField();
+        Assertions.assertEquals("Сумма", inputFields.getSumField());
+        Assertions.assertEquals("E-mail для отправки чека", inputFields.getEmailField());
     }
 
     @AfterAll

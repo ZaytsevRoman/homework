@@ -9,11 +9,11 @@ import java.util.List;
 
 public class ProductPage {
     private final WebDriver DRIVER;
-    private final By SIZE_TABLE_LOCATOR = By.xpath("//*[@class='sizes-table__btn j-wba-card-item']");
+    private final By SIZE_TABLE_LOCATOR = By.xpath("//*[@data-link='{on showTableOfSizes}']");
     private final By SIZE_LIST_LOCATOR = By.xpath("//*[@class='j-size sizes-list__button']");
     private final By ADD_TO_BASKET_BUTTON_LOCATOR = By.xpath("//*[@aria-label='Добавить в корзину']");
     private final By BACK_BUTTON_LOCATOR = By.xpath("//*[@class='breadcrumbs__back']");
-    private final By PRODUCT_NAME_LOCATOR = By.xpath("//*[@data-link='text{:selectedNomenclature^goodsName}']");
+    private final By PRODUCT_NAME_LOCATOR = By.xpath("//*[@class='product-page__title']");
     private final By PRODUCT_PRICE_LOCATOR = By.xpath("//*[@class='price-block__final-price']");
 
     public ProductPage(WebDriver driver) {
@@ -21,11 +21,7 @@ public class ProductPage {
     }
 
     private boolean checkSizeTable() {
-        if (DRIVER.findElements(SIZE_TABLE_LOCATOR).size() > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return !DRIVER.findElements(SIZE_TABLE_LOCATOR).isEmpty();
     }
 
     private List<WebElement> getSizeList() {
